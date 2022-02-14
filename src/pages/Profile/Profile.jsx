@@ -1,35 +1,77 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getUser } from '../../functions/apiService';
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const { username } = useParams();
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    getUser(username).then((res) => {
+      const userResponse = res[0];
+      if (userResponse) {
+        setUser(userResponse);
+        console.log(userResponse);
+      } else {
+        navigate('/error');
+      }
+    });
+  }, []);
+
   return (
     <section className="w-screen h-screen">
-      <div className="bg-gray-200 flex flex-wrap justify-center mr-2 ml-1">
-        <div className=" w-full bg-zinc-900 shadow-lg transform duration-200 easy-in-out">
-          {/* Background */}
-          <div className="h-32 overflow-hidden">
-            <img
-              className="w-full"
-              src="https://images.unsplash.com/photo-1605379399642-870262d3d051?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2000&q=80"
-              alt=""
-            />
-          </div>
-          {/* Profile Photo */}
-          <div className="flex justify-start px-5  -mt-10 sm:ml-12">
-            <img
-              className="h-32 w-32 bg-white p-1 rounded-full"
-              src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
-              alt=""
-            />
-            <h2 className="flex text-3xl font-bold items-center ml-4 sm:ml-8 mt-10">Mohit Dhiman</h2>
-          </div>
-          {/* Texts */}
-          <div className="pb-10">
-            <div className="text-center px-14">
-              <p className="mt-4 text-gray-300">Links</p>
+      {user && (
+        <div className="bg-gray-200 flex flex-wrap justify-center">
+          <div className=" w-full bg-zinc-900 shadow-lg transform duration-200 easy-in-out">
+            {/* Background */}
+            <div className="h-32 overflow-hidden">
+              {user.background ? (
+                <img className="w-full" src={user.background} alt={user.name} />
+              ) : (
+                <img
+                  className="h-full"
+                  src="https://asset.gecdesigns.com/img/backgrounds/modern-crystal-abstract-background-template-1612247149783-cover.webp"
+                  alt="background"
+                />
+              )}
+            </div>
+            {/* Profile Photo */}
+            <div className="flex justify-start px-5  -mt-10 sm:ml-12">
+              {user.image ? (
+                <img className="h-32 w-32 bg-white p-1 rounded-full" src={user.image} alt={user.name} />
+              ) : (
+                <img
+                  className="h-32 w-32 bg-white p-1 rounded-full"
+                  src="https://media.istockphoto.com/vectors/user-icon-flat-isolated-on-white-background-user-symbol-vector-vector-id1300845620?b=1&k=20&m=1300845620&s=170667a&w=0&h=JbOeyFgAc6-3jmptv6mzXpGcAd_8xqkQa_oUK2viFr8="
+                  alt="avatar"
+                />
+              )}
+
+              <h2 className="flex flex-col sm:flex-row text-left items-center mt-10 ml-4 sm:ml-8 font-bold text-3xl text-gray-200">
+                {user.name}
+
+                <p className="text-gray-400 w-full"> &nbsp;@{user.username}</p>
+              </h2>
+            </div>
+            {/* Texts */}
+            <div className="pb-10">
+              <div className="text-center px-14">
+                <div className="mt-4 text-gray-300">
+                  {user.links.map((link, index) => (
+                    <p key={index}>
+                      <a href={link.link} target="_blank">
+                        {link.title}
+                      </a>
+                    </p>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

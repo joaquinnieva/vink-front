@@ -8,12 +8,13 @@ import Register from '../pages/Register/Register';
 function Router() {
   return (
     <Routes>
-      <Route exact path="profile" element={<Profile />} />
-      <Route exact path="home" element={<Home />} />
+      <Route exact path="/:username" element={<Profile />} />
+      <Route exact path="/profile" element={<Profile />} />
+      <Route exact path="/home" element={<Home />} />
       <Route exact path="/" element={<Home />} />
-      <Route path="*" element={<NotFound404 />} />
-      <Route exact path="login" element={<Login />} />
-      <Route exact path="register" element={<Register />} />
+      <Route exact path="/error" element={<NotFound404 />} />
+      <Route exact path="/login" element={<Login />} />
+      <Route exact path="/register" element={<Register />} />
     </Routes>
   );
 }

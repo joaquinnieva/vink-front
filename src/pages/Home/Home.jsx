@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Landing from '../../components/LandingSVG/Landing';
 import { BRAND, LANDING_DESC, LANDING_TITLE, REGISTER, VIEW_MORE } from '../../data/constants';
-import training from '../../images/training.png';
 import './Home.css';
 
 const Home = () => {
   return (
     <main className="relative overflow-hidden home">
-      <div className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+      <div className="max-w-1/2 px-4 mt-32 sm:px-6 md:mt-16 lg:mt-40 lg:pl-12 lg:pr-0 xl:mt-40 flex justify-center lg:justify-start">
         <div className="sm:text-center lg:text-left ">
           <h1 className="text-4xl tracking-tight font-extrabold text-gray-200 sm:text-5xl md:text-6xl">
-            <span className="block lg:w-3/5">{LANDING_TITLE}</span>
-            <span className="block text-vink xl:inline">{BRAND}</span>
+            <span className="block text-center lg:text-left">{LANDING_TITLE}&nbsp;</span>
+            <span className="block text-center lg:text-left text-vink-800 xl:inline">{BRAND}</span>
           </h1>
-          <p className="mt-3 text-base text-gray-400 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+          <p className="text-base mt-8 mb-4 text-gray-400 sm:text-lg sm:max-w-xl sm:mx-auto md:text-xl lg:mx-0 pr-0 lg:pr-16">
             {LANDING_DESC}
           </p>
           <div className="my-5 sm:my-8 sm:flex sm:justify-center lg:justify-start">
@@ -36,8 +36,8 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-2/5 flex md:justify-center sm:justify-center">
-        <img className="w-fit h-fit lg:my-20" src={training} alt="training" />
+      <div className="h-auto lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 justify-center sm:flex hidden">
+        <Landing className="w-fit h-80 lg:h-auto lg:mt-20 lg:mb-32 lg:mr-10" />
       </div>
     </main>
   );

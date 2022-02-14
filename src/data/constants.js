@@ -1,8 +1,13 @@
+//credentials
+export const ID_GOOGLE = '391924837232-39bi0ecl4r06insvr2h4cl824aj9bjag.apps.googleusercontent.com';
+//web
 export const GRIS_OSCURO = '#202937';
 export const GRIS_CLARO = '#374151';
 export const BRAND = 'con Vink';
-export const LANDING_TITLE = 'Consigue unir tus links';
-export const LANDING_DESC = 'Este es un sitio para juntar todos tus links';
+export const LANDING_TITLE = 'Une tus links';
+export const LANDING_DESC = 'Aquí vas a poder juntar y compartir todos tus links de forma centralizada';
+export const HOME_DESC =
+  'Este es un sitio para juntar y compartir todos tus links, con Vink puedes mostrar tu perfil donde puedes publicar los links que quieras';
 export const VIEW_MORE = 'Ver más';
 export const CONFIRM = 'Confirmar';
 export const RESET = 'Resetear';
