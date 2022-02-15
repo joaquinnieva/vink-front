@@ -18,6 +18,7 @@ import {
   REGISTER
 } from '../../data/constants';
 import { loginUser } from '../../functions/apiService';
+import localAuth from '../../functions/localAuth';
 import { login } from '../../redux/slice/authSlice';
 
 function Login() {
@@ -39,6 +40,7 @@ function Login() {
       setLoading(false);
       dispatch(login(user));
       navigate('/home');
+      localAuth('login', { token: user.token, id: user.id, username: user.username, image: user.image });
     }
   };
 

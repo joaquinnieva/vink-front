@@ -12,7 +12,6 @@ const Home = () => {
   useEffect(() => {
     document.title = 'Vink';
   }, [user]);
-
   return (
     <>
       <Navbar />

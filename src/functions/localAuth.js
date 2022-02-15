@@ -1,10 +1,8 @@
-function localAuth(option) {
+function localAuth(option, token) {
   if (option === 'login') {
-    localStorage.setItem('sesion', '{token}');
-  }
-  if (option === 'logout') {
-    window.location.reload();
-    localStorage.removeItem('sesion');
+    return localStorage.setItem('sesion', JSON.stringify(token));
+  } else if (option === 'logout') {
+    return localStorage.removeItem('sesion');
   } else {
     return localStorage.getItem('sesion');
   }

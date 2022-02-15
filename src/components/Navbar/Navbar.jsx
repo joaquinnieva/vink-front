@@ -3,6 +3,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN, LOGOUT, PROFILE, REGISTER } from '../../data/constants';
+import localAuth from '../../functions/localAuth';
 import { logout } from '../../redux/slice/authSlice';
 import VinkIcon from '../VinkIcon/VinkIcon';
 import './Navbar.css';
@@ -16,6 +17,7 @@ function Navbar() {
     dispatch(logout());
     navigate('/');
     setNav(false);
+    localAuth('logout');
   };
   const navPosition = () => {
     if (user) {
