@@ -34,14 +34,16 @@ const Home = () => {
                   {VIEW_MORE}
                 </a>
               </div>
-              <div className="mt-5 sm:mt-0 sm:ml-3">
-                <Link
-                  to="/register"
-                  className="w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md text-gray-900 bg-gray-300 hover:bg-gray-200 md:py-4 md:text-lg md:px-10"
-                >
-                  {REGISTER}
-                </Link>
-              </div>
+              {!user && (
+                <div className="mt-5 sm:mt-0 sm:ml-3">
+                  <Link
+                    to="/register"
+                    className="w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md text-gray-900 bg-gray-300 hover:bg-gray-200 md:py-4 md:text-lg md:px-10"
+                  >
+                    {REGISTER}
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Loader from '../../components/Loader/Loader';
 import VinkIcon from '../../components/VinkIcon/VinkIcon';
+import Visibility from '../../components/Visibility/Visibility';
 import {
   CREATE_ACCOUNT,
   GRIS_OSCURO,
@@ -22,6 +23,13 @@ import localAuth from '../../functions/localAuth';
 import { login } from '../../redux/slice/authSlice';
 
 function Login() {
+  const [visible, setVisible] = useState(false);
+  const isVisible = () => {
+    setVisible(true);
+    if (visible === true) {
+      setVisible(false);
+    }
+  };
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,7 +43,6 @@ function Login() {
     setLoading(true);
     const user = await loginUser(data);
     const { token } = user;
-    console.log(token);
     if (user) {
       setLoading(false);
       dispatch(login(user));
@@ -63,9 +70,9 @@ function Login() {
               initialValues={{ username: '', password: '' }}
               validate={(values) => {
                 const errors = {};
-                if (values.username < 2) {
+                if (values.username.length < 3) {
                   errors.username = '¡Usuario debe contener al menos 3 caracteres!';
-                } else if (values.password < 5) {
+                } else if (values.password.length < 6) {
                   errors.password = '¡Contraseña debe contener al menos 6 caracteres!';
                 }
                 return errors;
@@ -86,22 +93,24 @@ function Login() {
                         autoComplete="off"
                       />
                     </div>
-                    <div>
+                    <div className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm">
                       <Field
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
-                        type="password"
+                        className="appearance-none block w-full text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
+                        type={`${visible ? 'text' : 'password'}`}
                         name="password"
                         placeholder="Contraseña"
                       />
-                      <ErrorMessage name="username">
-                        {(msg) => <div className="text-red-400 p-2">{msg}</div>}
-                      </ErrorMessage>
-                      <ErrorMessage name="password">
-                        {(msg) => <div className="text-red-400 p-2">{msg}</div>}
-                      </ErrorMessage>
+                      <button type="button" onClick={isVisible} className="text-black absolute inset-y-0 right-0 p-2">
+                        {visible ? <Visibility visible /> : <Visibility />}
+                      </button>
                     </div>
+                    <ErrorMessage name="username">
+                      {(msg) => <div className="text-red-400 p-2">{msg}</div>}
+                    </ErrorMessage>
+                    <ErrorMessage name="password">
+                      {(msg) => <div className="text-red-400 p-2">{msg}</div>}
+                    </ErrorMessage>
                   </div>
-
                   <div className="pb-8 border-b-2 border-gray-400 ">
                     {loading ? (
                       <button

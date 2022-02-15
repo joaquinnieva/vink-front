@@ -25,3 +25,5 @@ export const CREATE_ACCOUNT = '¿Aún no tienes cuenta?';
 export const LOGIN_ACCOUNT = 'Si ya tienes una cuenta';
 export const HOME = 'Inicio';
 export const PROFILE = 'Perfil';
+export const IN_LOAD = 'Cargando...';
+export const EDIT_PROFILE = 'Editar';

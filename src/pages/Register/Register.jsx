@@ -7,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import Loader from '../../components/Loader/Loader';
 import VinkIcon from '../../components/VinkIcon/VinkIcon';
+import Visibility from '../../components/Visibility/Visibility';
 import {
   GRIS_OSCURO,
   ID_GOOGLE,
@@ -17,9 +18,17 @@ import {
   REGISTER_PAGE
 } from '../../data/constants';
 import { loginUser, registerUser } from '../../functions/apiService';
+import localAuth from '../../functions/localAuth';
 import { login } from '../../redux/slice/authSlice';
 
 function Register() {
+  const [visible, setVisible] = useState(false);
+  const isVisible = () => {
+    setVisible(true);
+    if (visible === true) {
+      setVisible(false);
+    }
+  };
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,14 +41,21 @@ function Register() {
 
   const registerButton = async (data) => {
     setLoading(true);
-    const registeringUser = await registerUser(data);
-    if (registeringUser) {
-      const logingUser = await loginUser(data);
-      if (logingUser) {
-        dispatch(login(data));
+    const user = await registerUser(data);
+    if (user) {
+      const userToLog = await loginUser(data);
+      if (userToLog) {
+        setLoading(false);
+        dispatch(login(userToLog));
         navigate('/home');
+        localAuth('login', {
+          token: userToLog.token,
+          id: userToLog.id,
+          username: userToLog.username,
+          image: userToLog.image,
+        });
       }
-    } else if (registeringUser) {
+    } else if (user) {
       setLoading(false);
       // poner noti de que existe o esta mal la info
     }
@@ -57,16 +73,15 @@ function Register() {
               <div className="mx-auto h-auto w-auto flex justify-center">
                 <VinkIcon colour={GRIS_OSCURO} height={70} width={400} complete />
               </div>
-
               <h2 className="mt-6 text-center text-3xl font-bold text-gray-800">{REGISTER_PAGE}</h2>
             </div>
             <Formik
               initialValues={{ username: '', password: '' }}
               validate={(values) => {
                 const errors = {};
-                if (values.username < 2) {
+                if (values.username.length < 3) {
                   errors.username = '¡Usuario debe contener al menos 3 caracteres!';
-                } else if (values.password < 5) {
+                } else if (values.password.length < 6) {
                   errors.password = '¡Contraseña debe contener al menos 6 caracteres!';
                 }
                 return errors;
@@ -86,19 +101,24 @@ function Register() {
                         placeholder="Usuario"
                         autoComplete="off"
                       />
-                      <ErrorMessage name="email">{(msg) => <div className="text-red-400 p-2">{msg}</div>}</ErrorMessage>
                     </div>
-                    <div>
+                    <div className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm">
                       <Field
-                        className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
-                        type="password"
+                        className="appearance-none block w-full text-gray-900 rounded-b-md focus:outline-none focus:ring-slate-500 focus:border-slate-500 focus:z-10 sm:text-sm"
+                        type={`${visible ? 'text' : 'password'}`}
                         name="password"
                         placeholder="Contraseña"
                       />
-                      <ErrorMessage name="password">
-                        {(msg) => <div className="text-red-400 p-2">{msg}</div>}
-                      </ErrorMessage>
+                      <button type="button" onClick={isVisible} className="text-black absolute inset-y-0 right-0 p-2">
+                        {visible ? <Visibility visible /> : <Visibility />}
+                      </button>
                     </div>
+                    <ErrorMessage name="username">
+                      {(msg) => <div className="text-red-400 p-2">{msg}</div>}
+                    </ErrorMessage>
+                    <ErrorMessage name="password">
+                      {(msg) => <div className="text-red-400 p-2">{msg}</div>}
+                    </ErrorMessage>
                   </div>
 
                   <div className="pb-8 border-b-2 border-gray-400 ">
