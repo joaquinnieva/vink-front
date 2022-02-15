@@ -1,24 +1,33 @@
 import Axios from 'axios';
 
-const URI = `http://localhost:3001/api`;
+const URI_API = `http://localhost:3001/api`;
 
-export function loginUser(param) {
-  return Axios.get(`${URI}/login`).then((res) => {
+export const loginUser = async (value) => {
+  try {
+    const res = await Axios.post(`${URI_API}/login`, value);
     const api = res.data;
     return api;
-  });
-}
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export function getUser(param) {
-  return Axios.get(`${URI}/user/${param}`).then((res) => {
+export const registerUser = async (value) => {
+  try {
+    const res = await Axios.post(`${URI_API}/user`, value);
     const api = res.data;
     return api;
-  });
-}
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export function postUser(param) {
-  return Axios.get(`${URI}/user/${param}`).then((res) => {
+export const getUser = async (param) => {
+  try {
+    const res = await Axios.get(`${URI_API}/user/${param}`);
     const api = res.data;
     return api;
-  });
-}
+  } catch (error) {
+    console.log(error);
+  }
+};
