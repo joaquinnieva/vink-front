@@ -5,6 +5,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Editicon from '../../components/EditIcon/EditIcon';
 import Footer from '../../components/Footer/Footer';
+import FormEdit from '../../components/Form/Form';
 import Loader from '../../components/Loader/Loader';
 import Navbar from '../../components/Navbar/Navbar';
 import { EDIT_PROFILE, IN_LOAD } from '../../data/constants';
@@ -42,7 +43,7 @@ const Profile = () => {
 
         {user && (
           <>
-            {username === userLogged.username && (
+            {user.username === userLogged.username && (
               <Popup
                 trigger={
                   <button
@@ -57,21 +58,11 @@ const Profile = () => {
                 nested
               >
                 {(close) => (
-                  <div className="modal bg-gray-800 p-6">
+                  <div className="modal bg-transparent p-6">
                     <button className="close text-black" onClick={close}>
                       &times;
                     </button>
-                    <div className="header"> Edita tu perfil </div>
-                    <div className="content">
-                      FORMS
-                      <br /> Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, a nostrum. Dolorem,
-                      repellat quidem ut, minima sint vel eveniet quibusdam voluptates delectus doloremque, explicabo
-                      tempore dicta adipisci fugit amet dignissimos?
-                      <br />
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur sit commodi beatae optio
-                      voluptatum sed eius cumque, delectus saepe repudiandae explicabo nemo nam libero ad, doloribus,
-                      voluptas rem alias. Vitae?
-                    </div>
+                    <FormEdit data={user} />
                   </div>
                 )}
               </Popup>

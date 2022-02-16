@@ -15,9 +15,9 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <main className="overflow-hidden w-screen">
-        <div className="max-w-1/2 px-4 mt-32 sm:px-6 md:mt-16 lg:mt-40 lg:pl-12 lg:pr-0 xl:mt-40 flex justify-center lg:justify-start">
-          <div className="sm:text-center lg:text-left ">
+      <main className="overflow-hidden w-screen h-screen flex items-center">
+        <div className="max-w-1/2 px-4 sm:px-6 lg:pl-12 lg:pr-0 flex justify-center lg:justify-start">
+          <div className="sm:text-center lg:text-left mb-32">
             <h1 className="text-4xl tracking-tight font-extrabold text-gray-200 sm:text-5xl md:text-6xl">
               <span className="block text-center lg:text-left">{LANDING_TITLE}&nbsp;</span>
               <span className="block text-center lg:text-left text-vink-800 xl:inline">{BRAND}</span>
@@ -29,7 +29,7 @@ const Home = () => {
               <div className="rounded-md shadow">
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-vink-800 hover:bg-vink-700 md:py-4 md:text-lg md:px-10"
+                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-200 bg-vink-800 hover:bg-vink-700 md:py-4 md:text-lg md:px-10"
                 >
                   {VIEW_MORE}
                 </a>
@@ -38,7 +38,7 @@ const Home = () => {
                 <div className="mt-5 sm:mt-0 sm:ml-3">
                   <Link
                     to="/register"
-                    className="w-full flex items-center justify-center px-8 py-3 border text-base font-medium rounded-md text-gray-900 bg-gray-300 hover:bg-gray-200 md:py-4 md:text-lg md:px-10"
+                    className="w-full flex items-center justify-center px-8 py-3 border border-gray-600 text-base font-medium rounded-md text-gray-200 bg-gray-700 hover:bg-gray-600 md:py-4 md:text-lg md:px-10"
                   >
                     {REGISTER}
                   </Link>

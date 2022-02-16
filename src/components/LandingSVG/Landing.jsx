@@ -12,7 +12,7 @@ const Landing = ({ className }) => {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g id="vink">
-        <circle className="primary" cx="1454" cy="1587.5" r="409" fill="#1875CB" />
+        <circle className="primary" cx="1454" cy="1587.5" r="409" fill="#1875CB"></circle>
         <g id="solos circles">
           <circle cx="942.443" cy="159.924" r="59.6777" fill="#1875CB" />
           <circle cx="393.408" cy="1077.82" r="59.6777" fill="#1875CB" />
@@ -33,6 +33,7 @@ const Landing = ({ className }) => {
           <circle cx="1097.61" cy="2735.16" r="214.84" fill="#1875CB" />
         </g>
         <g>
+          <animate attributeName="opacity" dur="2s" values="0;1;0" repeatCount="indefinite" begin="0.1" />
           <line
             className="lines"
             x1="665.818"

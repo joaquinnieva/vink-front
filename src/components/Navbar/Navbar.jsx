@@ -52,7 +52,7 @@ function Navbar() {
                     ) : (
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://cdn-icons-png.flaticon.com/512/147/147144.png"
+                        src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
                         alt="perfil"
                       />
                     )}
@@ -89,7 +89,7 @@ function Navbar() {
                   <button
                     type="button"
                     onClick={logoutButton}
-                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 w-full text-left"
                   >
                     {LOGOUT}
                   </button>
