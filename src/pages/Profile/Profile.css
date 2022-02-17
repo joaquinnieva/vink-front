@@ -1,25 +1,8 @@
 .modal {
   font-size: 12px;
   border-radius: 8px;
-  overflow-y: auto !important;
+  max-height: 80vh;
   overflow-x: hidden;
-}
-.modal > .header {
-  width: 100%;
-  border-bottom: 1px solid gray;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
-}
-.modal > .content {
-  width: 100%;
-  padding: 10px 5px;
-}
-.modal > .actions {
-  width: 100%;
-  padding: 10px 5px;
-  margin: auto;
-  text-align: center;
 }
 .modal > .close {
   cursor: pointer;
@@ -27,23 +10,16 @@
   display: block;
   padding: 2px 5px 7px;
   line-height: 20px;
-  right: -1px;
-  top: 29px;
+  right: 5px;
+  top: -30px;
   font-size: 24px;
   color: white;
-  background: #cfcece38;
+  background: rgba(211, 211, 211, 0.22);
   border-radius: 5px;
 }
 .popup-content {
   background: none;
   border: none;
-  border-radius: 10px;
   width: 90%;
-}
-
-@media (min-width: '500px') {
-  .popup-content {
-    width: auto;
-    border-radius: 10px !important;
-  }
+  height: auto;
 }

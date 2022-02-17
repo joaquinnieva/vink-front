@@ -34,6 +34,7 @@ const Profile = () => {
   return (
     <>
       <section className="w-screen h-screen">
+        {/* Loader */}
         {loading && (
           <span className="absolute left-1/2 -translate-x-1/2 inset-y-0 flex items-center">
             <Loader className="h-10 w-10 mr-3" />
@@ -58,8 +59,8 @@ const Profile = () => {
                 nested
               >
                 {(close) => (
-                  <div className="modal bg-transparent p-6">
-                    <button className="close text-black" onClick={close}>
+                  <div className="modal bg-transparent">
+                    <button className="close" onClick={close}>
                       &times;
                     </button>
                     <FormEdit data={user} />
