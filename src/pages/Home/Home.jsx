@@ -9,6 +9,7 @@ import './Home.css';
 
 const Home = () => {
   const user = useSelector((state) => state.auth.session);
+
   useEffect(() => {
     document.title = 'Vink';
   }, [user]);
@@ -51,6 +52,39 @@ const Home = () => {
           <Landing className="w-fit h-80 lg:h-auto lg:mt-20 lg:mb-32 lg:mr-10" />
         </div>
       </main>
+      <section className="h-screen text-white font-medium mx-4">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum cumque atque fugiat molestias
+        aliquam, quam saepe et aspernatur Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident
+        eum cumque atque fugiat molestias aliquam, quam saepe et aspernatur cum, voluptate quisLorem ipsum dolor sit
+        amet consectetur adipisicing elit. A minima provident eum cumque atque fugiat molestias aliquam, quam saepe et
+        aspernatur Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum cumque atque fugiat
+        molestias aliquam, quam saepe et aspernatur cum, voluptate quisquam rerum doloribcum, voluptate quisquam rerum
+        doloribus tempore laboriosam accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+        minima provident eum cumque atque fugiat molestias aliquam, quam saepe et aspernatur cum, voluptate quisquam
+        rerum doloribus tempore laboriosLorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum
+        cumque atque fugiat molestias aliquam, quam saepe et aspernatur Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. A minima provident eum cumque atque fugiat molestias aliquam, quam saepe et aspernatur cum,
+        voluptate quisquam rerum doloribcum, voluptate quisquam rerum doloribus tempore laboriosam accusantium
+        veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum cumque atque fugiat
+        molestias aliquam, quam saepe et aspernatur cum, voluptate quisquam rerum doloribus tempore laLorem ipsum dolor
+        sit amet consectetur adipisicing elit. A minima provident eum cumque atque fugiat molestias aliquam, quam saepe
+        et aspernatur Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum cumque atque
+        fugiat molestias aliquam, quam saepe et aspernatur cum, voluptate quisLorem ipsum dolor sit amet consectetur
+        adipisicing elit. A minima provident eum cumque atque fugiat molestias aliquam, quam saepe et aspernatur Lorem
+        ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum cumque atque fugiat molestias aliquam,
+        quam saepe et aspernatur cum, voluptate quisquam rerum doloribcum, voluptate quisquam rerum doloribus tempore
+        laboriosam accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum
+        cumque atque fugiat molestias aliquam, quam saepe et aspernatur cum, voluptate quisquam rerum doloribus tempore
+        laboriosLorem ipsum dolor sit amet consectetur adipisicing elit. A minima provident eum cumque atque fugiat
+        molestias aliquam, quam saepe et aspernatur Lorem ipsum dolor sit amet consectetur adipisicing elit. A minima
+        provident eum cumque atque fugiat molestias aliquam, quam saepe et aspernatur cum, voluptate quisquam rerum
+        doloribcum, voluptate quisquam rerum doloribus tempore laboriosam accusantium veniam!Lorem ipsum dolor sit amet
+        consectetur adipisicing elit. A minima provident eum cumque atque fugiat molestias aliquam, quam saepe et
+        aspernatur cum, voluptate quisquam rerum doloribus tempore laboriosquam rerum doloribcum, voluptate quisquam
+        rerum doloribus tempore laboriosam accusantium veniam!Lorem ipsum dolor sit amet consectetur adipisicing elit. A
+        minima provident eum cumque atque fugiat molestias aliquam, quam saepe et aspernatur cum, voluptate quisquam
+        rerum doloribus tempore laboriosam accusantium veniam!
+      </section>
       {user && <Footer position="top" />}
     </>
   );
