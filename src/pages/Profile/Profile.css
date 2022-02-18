@@ -1,7 +1,7 @@
 .modal {
   font-size: 12px;
   border-radius: 8px;
-  max-height: 80vh;
+  max-height: 90vh;
   overflow-x: hidden;
 }
 .modal > .close {
@@ -22,4 +22,41 @@
   border: none;
   width: 90%;
   height: auto;
+}
+
+.markdown > p {
+  display: flex;
+  flex-direction: column;
+}
+.markdown > h1 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown > h2 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+.markdown > h3 {
+  display: block;
+  font-size: 0.83em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.button-form {
+  height: 38px;
+  width: 90px;
 }
