@@ -29,7 +29,7 @@ function Navbar() {
     navPosition();
   }, [user]);
   return (
-    <nav className={`bg-gray-800 w-screen ${nav && 'fixed bottom-0'}`}>
+    <nav className={`bg-gray-800 w-screen ${nav && 'fixed bottom-0 bg-black/30 backdrop-blur-sm'} `}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center h-16 m-2 justify-between">
           <div className="flex justify-start">
@@ -64,7 +64,7 @@ function Navbar() {
                     </Link>
                     <Link
                       to="register"
-                      className="border border-gray-300 rounded py-2 px-6 hover:bg-gray-300 hover:text-gray-900 hidden sm:block"
+                      className="border border-gray-300 rounded py-2 px-6 hover:bg-gray-300 text-gray-100 hover:text-gray-900 hidden sm:block"
                     >
                       {REGISTER}
                     </Link>

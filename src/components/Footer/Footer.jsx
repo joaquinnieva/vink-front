@@ -3,7 +3,7 @@ import VinkIcon from '../VinkIcon/VinkIcon';
 
 function Footer({ position = 'bottom' }) {
   return (
-    <nav className={`bg-gray-800 w-screen ${position === 'bottom' ? 'fixed bottom-0' : 'fixed top-0'}`}>
+    <nav className={`bg-gray-800 w-screen ${position === 'bottom' ? 'hidden' : 'fixed top-0'}`}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div
           className={`relative flex items-center h-16 m-2 ${
@@ -13,7 +13,7 @@ function Footer({ position = 'bottom' }) {
           <div className="flex justify-start">
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="block h-10 w-auto">
-                <VinkIcon height={40} width={120} complete />
+                <VinkIcon className="drop-shadow-2xl" height={40} width={120} complete />
               </Link>
             </div>
           </div>
