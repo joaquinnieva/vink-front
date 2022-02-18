@@ -1,9 +1,16 @@
 import React from 'react';
 
-const VinkIcon = ({ colour, width, height, complete }) => {
+const VinkIcon = ({ className, colour, width, height, complete }) => {
   return (
     <>
-      <svg width={width} height={height} viewBox="0 0 500 208" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        className={className}
+        width={width}
+        height={height}
+        viewBox="0 0 500 208"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
         <g id="Logo AGAIN">
           <g id="Group 14">
             <circle
