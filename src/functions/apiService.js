@@ -31,3 +31,19 @@ export const getUser = async (param) => {
     console.log(error);
   }
 };
+
+export const editUser = async (id, value, token) => {
+  try {
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + token,
+        'Access-Control-Allow-Origin': '*',
+      },
+    };
+    const res = await Axios.put(`${URI_API}/user/${id}`, value, config);
+    const api = res.data;
+    return api;
+  } catch (error) {
+    console.log(error);
+  }
+};
