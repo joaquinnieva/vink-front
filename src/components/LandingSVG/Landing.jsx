@@ -5,8 +5,8 @@ const Landing = ({ className }) => {
   return (
     <svg
       className={className}
-      width="2813"
-      height="3097"
+      width="100"
+      height="100"
       viewBox="0 0 2813 3097"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
