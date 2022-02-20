@@ -2,7 +2,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { LOGIN, LOGOUT, PROFILE, REGISTER } from '../../data/constants';
+import { LOGIN, LOGOUT, PROFILE, REGISTER, SAMPLE_IMAGE } from '../../data/constants';
 import localAuth from '../../functions/localAuth';
 import { logout } from '../../redux/slice/authSlice';
 import VinkIcon from '../VinkIcon/VinkIcon';
@@ -50,11 +50,7 @@ function Navbar() {
                     {user.image ? (
                       <img className="h-8 w-8 rounded-full" src={user.image} alt="perfil" />
                     ) : (
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
-                        alt="perfil"
-                      />
+                      <img className="h-8 w-8 rounded-full" src={SAMPLE_IMAGE} alt="perfil" />
                     )}
                   </Menu.Button>
                 ) : (

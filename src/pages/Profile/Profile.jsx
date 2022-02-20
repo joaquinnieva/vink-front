@@ -11,7 +11,7 @@ import FormEdit from '../../components/Form/Form';
 import Loader from '../../components/Loader/Loader';
 import Navbar from '../../components/Navbar/Navbar';
 import VinkIcon from '../../components/VinkIcon/VinkIcon';
-import { EDIT_PROFILE, IN_LOAD } from '../../data/constants';
+import { EDIT_PROFILE, IN_LOAD, SAMPLE_IMAGE } from '../../data/constants';
 import { getUser } from '../../functions/apiService';
 import './Profile.css';
 
@@ -91,22 +91,27 @@ const Profile = () => {
               </div>
 
               {/* Profile Photo */}
-              <header className="flex overflow-hidden justify-start items-end px-5 -mt-10 sm:ml-12">
-                {user.image ? (
-                  <img
-                    style={{ background: userOptions?.color || '#ffffff' }}
-                    className="h-28 w-28 sm:h-32 sm:w-32 bg-black p-1 rounded-full"
-                    src={user.image}
-                    alt={user.name}
-                  />
-                ) : (
-                  <img
-                    style={{ background: userOptions?.color || '#ffffff' }}
-                    className="h-28 w-28 sm:h-32 sm:w-32 bg-white p-1 rounded-full"
-                    src="https://media.istockphoto.com/vectors/user-icon-flat-isolated-on-white-background-user-symbol-vector-vector-id1300845620?b=1&k=20&m=1300845620&s=170667a&w=0&h=JbOeyFgAc6-3jmptv6mzXpGcAd_8xqkQa_oUK2viFr8="
-                    alt="avatar"
-                  />
-                )}
+              <header className="flex overflow-hidden justify-start items-end px-5 -mt-6 sm:-mt-10 sm:ml-12">
+                <div
+                  style={{ background: userOptions?.color }}
+                  className="h-24 w-24 sm:h-28 sm:w-28 bg-gray-800 p-1 rounded-full overflow-hidden flex items-center"
+                >
+                  {user.image ? (
+                    <img
+                      style={{ background: userOptions?.color || '#ffffff' }}
+                      className="h-full w-full rounded-full"
+                      src={user.image}
+                      alt={user.name}
+                    />
+                  ) : (
+                    <img
+                      style={{ background: userOptions?.color || '#ffffff' }}
+                      className="h-full w-full bg-white rounded-full"
+                      src={SAMPLE_IMAGE}
+                      alt="avatar"
+                    />
+                  )}
+                </div>
 
                 {/* name */}
                 <div className="flex flex-col sm:flex-row h-fit text-left items-end sm:mb-4 ml-2 sm:ml-8 font-bold text-3xl text-gray-200">

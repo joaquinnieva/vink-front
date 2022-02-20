@@ -56,7 +56,7 @@ const FormEdit = ({ data, close }) => {
       <Formik
         initialValues={{
           name: '',
-          description: ``,
+          description: data?.description || '',
           image: '',
           background: '',
           options: {
@@ -66,7 +66,7 @@ const FormEdit = ({ data, close }) => {
             buttonRadius: dataOptions?.buttonRadius || 'rounded-none',
             textColor: dataOptions?.textColor || '#ffffff',
           },
-          links: data.links,
+          links: data?.links,
         }}
         onSubmit={(values) => {
           const infoUser = prepareData(values, image, background);
@@ -78,16 +78,16 @@ const FormEdit = ({ data, close }) => {
             <div className="rounded-md">
               <div className="px-4 py-5 bg-gray-300 space-y-6 sm:p-6">
                 {/* Imagenes */}
-                <div className="flex justify-between flex-wrap px-1">
+                <div className="flex justify-around flex-wrap px-1">
                   {/* Foto */}
                   <div className="pr-10">
                     <label className="block text-sm font-medium text-gray-700">{USER_PHOTO}</label>
                     <div className="mt-1 flex items-center">
                       <span className="flex justify-center items-center h-12 w-12 rounded-full overflow-hidden bg-gray-500">
                         {image ? (
-                          <img className="h-fit w-fit" src={image} alt="" />
+                          <img className="h-fit w-fit m-auto" src={image} alt="" />
                         ) : (
-                          <img className="h-fit w-fit" src={data?.image} alt="" />
+                          <img className="h-fit w-fit m-auto" src={data?.image} alt="" />
                         )}
                       </span>
                       <label className="cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
@@ -133,13 +133,13 @@ const FormEdit = ({ data, close }) => {
                   <div className="pr-10">
                     <label className="block text-sm font-medium text-gray-700">{USER_BG}</label>
                     <div className="mt-1 flex items-center">
-                      <span className="inline-block h-12 w-12 rounded overflow-hidden bg-gray-100">
+                      <span className="flex justify-center items-center h-12 w-12 rounded overflow-hidden bg-gray-100">
                         {background ? (
-                          <img className="h-full w-full" src={background} alt="" />
+                          <img className="h-fit w-fit" src={background} alt="" />
                         ) : data.background ? (
-                          <img className="h-full w-full" src={data?.background} alt="" />
+                          <img className="h-fit w-fit" src={data?.background} alt="" />
                         ) : (
-                          <img className="h-full w-full" src={SAMPLE_BG} alt="" />
+                          <img className="h-fit w-fit" src={SAMPLE_BG} alt="" />
                         )}
                       </span>
                       <label className="cursor-pointer ml-5 bg-white py-2 px-3 border border-gray-300 rounded-md shadow-sm text-sm leading-4 font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
@@ -151,7 +151,7 @@ const FormEdit = ({ data, close }) => {
                           value={values.background}
                           type="file"
                           className="hidden"
-                          accept="image/png, image/jpeg, image/jpg, image/gif"
+                          accept="image/png, image/jpeg, image/jpg"
                           name="background"
                         />
                       </label>
@@ -193,7 +193,6 @@ const FormEdit = ({ data, close }) => {
                       name="description"
                       autoComplete="off"
                       row={5}
-                      placeholder={data.description}
                     />
                     <div>
                       <label className="block text-sm font-medium text-gray-700">{TEXT_COLOR}</label>
@@ -239,17 +238,17 @@ const FormEdit = ({ data, close }) => {
                                     <Field
                                       autoComplete="off"
                                       placeholder="Title"
-                                      className="text-gray-600 focus:ring-vink-800 focus:border-vink-800 flex-1 block w-full rounded-md sm:text-sm border border-gray-300 p-1"
+                                      className="text-gray-600 shadow-sm focus:ring-vink-800 focus:border-vink-800 flex-1 block w-full rounded-md sm:text-sm border border-gray-300 p-1"
                                       name={`links.${index}.title`}
                                     />
                                     <Field
                                       autoComplete="off"
                                       placeholder="http://example.com"
-                                      className="text-gray-600 focus:ring-vink-800 focus:border-vink-800 flex-1 block w-full rounded-md sm:text-sm border border-gray-300 p-1"
+                                      className="text-gray-600 shadow-sm focus:ring-vink-800 focus:border-vink-800 flex-1 block w-full rounded-md sm:text-sm border border-gray-300 p-1"
                                       name={`links.${index}.link`}
                                     />
                                     <button
-                                      className="text-black ml-1"
+                                      className={`text-black ml-1 ${index === 0 && 'invisible'}`}
                                       type="button"
                                       onClick={() => arrayHelpers.remove(index)}
                                     >
@@ -290,7 +289,7 @@ const FormEdit = ({ data, close }) => {
                   <label className="block text-sm font-medium text-gray-700">{BUTTON}</label>
                   <div className="mt-1 flex items-center flex-wrap justify-start sm:justify-around">
                     <span
-                      className={`bg-gray-200 text-black border-2 drop-shadow-md rounded py-3 px-16 m-4 whitespace-nowrap w-100 ${values.options.buttonRadius}`}
+                      className={`bg-gray-200 text-black drop-shadow-md rounded py-3 px-16 m-4 whitespace-nowrap w-100 ${values.options.buttonRadius}`}
                       style={{ background: values.options.buttonColor, color: values.options.buttonText }}
                     >
                       {MY_LINK}
