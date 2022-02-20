@@ -6,6 +6,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import rehypeRaw from 'rehype-raw';
 import remarkGfm from 'remark-gfm';
+import CopyIcon from '../../components/CopyIcon/CopyIcon';
 import Editicon from '../../components/EditIcon/EditIcon';
 import FormEdit from '../../components/Form/Form';
 import Loader from '../../components/Loader/Loader';
@@ -33,6 +34,9 @@ const Profile = () => {
     } else {
       navigate('/home');
     }
+  };
+  const handleCopy = (link) => {
+    navigator.clipboard.writeText(link.link);
   };
 
   useEffect(() => {
@@ -94,7 +98,7 @@ const Profile = () => {
               </div>
 
               {/* Profile Photo */}
-              <header className="flex overflow-hidden justify-start items-end px-5 -mt-6 sm:-mt-10 sm:ml-12">
+              <header className="flex flex-col overflow-hidden justify-start px-5 -mt-12 sm:-mt-12 sm:ml-12 sm:mr-12 ">
                 <div
                   style={{ background: userOptions?.color }}
                   className="h-24 w-24 sm:h-28 sm:w-28 bg-gray-800 p-1 rounded-full overflow-hidden flex items-center"
@@ -117,16 +121,16 @@ const Profile = () => {
                 </div>
 
                 {/* name */}
-                <div className="flex flex-col sm:flex-row h-fit text-left items-end sm:mb-4 ml-2 sm:ml-8 font-bold text-3xl text-gray-200">
+                <div className="flex flex-row h-fit text-left justify-start sm:mb-4 font-bold text-3xl text-gray-200">
                   <p
                     style={{ color: userOptions?.textColor || '#9ca3af' }}
-                    className="text-gray-400 w-full whitespace-nowrap"
+                    className="text-gray-400 w-auto whitespace-nowrap"
                   >
                     {user.name || user.username}
                   </p>
                   <p
                     style={{ color: userOptions?.textColor || '#9ca3af', opacity: '.6' }}
-                    className="text-gray-400 w-full"
+                    className="text-gray-400 w-auto"
                   >
                     &nbsp;@{user.username}
                   </p>
@@ -150,23 +154,33 @@ const Profile = () => {
 
               {/* links */}
               <div className="">
-                <div className="text-center px-4 lg:px-16 mb-10">
+                <div className="text-center pl-8 pr-2 lg:px-16 mb-10">
                   <div className="flex flex-col mt-6 h-auto">
                     {user.links?.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.link}
-                        target="_blank"
-                        className={`bg-gray-200 text-black font-medium p-2 m-2 w-100 ${
-                          userOptions?.buttonRadius || 'rounded'
-                        }`}
-                        style={{
-                          background: userOptions?.buttonColor || '#fff',
-                          color: userOptions?.buttonText || '#000',
-                        }}
-                      >
-                        {link.title}
-                      </a>
+                      <p key={index} className="w-100 flex">
+                        <a
+                          href={link.link}
+                          target="_blank"
+                          className={`w-full relative bg-gray-200 text-black font-medium p-2 m-2 w-100 ${
+                            userOptions?.buttonRadius || 'rounded'
+                          }`}
+                          style={{
+                            background: userOptions?.buttonColor || '#fff',
+                            color: userOptions?.buttonText || '#000',
+                          }}
+                        >
+                          {link.title}
+                        </a>
+                        <button
+                          className=""
+                          style={{
+                            color: userOptions?.textColor || '#fff',
+                          }}
+                          onClick={() => handleCopy(link)}
+                        >
+                          <CopyIcon className="text-white" />
+                        </button>
+                      </p>
                     ))}
                   </div>
                 </div>
