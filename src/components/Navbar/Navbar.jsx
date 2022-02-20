@@ -8,14 +8,13 @@ import { logout } from '../../redux/slice/authSlice';
 import VinkIcon from '../VinkIcon/VinkIcon';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar({ brand }) {
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.session);
   const dispatch = useDispatch();
   const logoutButton = () => {
     dispatch(logout());
-    navigate('/');
     setNav(false);
     localAuth('logout');
   };
@@ -29,11 +28,15 @@ function Navbar() {
     navPosition();
   }, [user]);
   return (
-    <nav className={`bg-gray-800 w-screen ${nav && 'fixed bottom-0 bg-black/30 backdrop-blur-sm'} `}>
+    <nav
+      className={` w-screen fixed  ${user ? ' bottom-0 bg-black/30 backdrop-blur-sm' : 'top-0 bg-gray-800'} ${
+        !brand && user && 'bg-transparent backdrop-blur-none'
+      } `}
+    >
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center h-16 m-2 justify-between">
           <div className="flex justify-start">
-            <div className="flex-shrink-0 flex items-center">
+            <div className={`flex-shrink-0 flex items-center ${!brand && user && 'invisible'}`}>
               <Link to="/" className="block md:hidden h-10 w-auto">
                 <VinkIcon height={40} width={120} />
               </Link>
