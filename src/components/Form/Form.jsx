@@ -25,6 +25,7 @@ import { login } from '../../redux/slice/authSlice';
 import Loader from '../Loader/Loader';
 
 const FormEdit = ({ data, close }) => {
+  const [errorFile, setErrorFile] = useState(false);
   const [image, setImage] = useState('');
   const [background, setBackground] = useState('');
   const [loading, setLoading] = useState(false);
@@ -94,7 +95,12 @@ const FormEdit = ({ data, close }) => {
                         {EDIT_PROFILE}
                         <input
                           onChange={(event) => {
-                            toBase64(event.currentTarget.files[0]).then((data) => setImage(data));
+                            if (event.currentTarget.files[0].size < 4000000) {
+                              toBase64(event.currentTarget.files[0]).then((data) => setImage(data));
+                              setErrorFile(false);
+                            } else {
+                              setErrorFile(true);
+                            }
                           }}
                           value={values.image}
                           type="file"
@@ -146,7 +152,12 @@ const FormEdit = ({ data, close }) => {
                         {EDIT_PROFILE}
                         <input
                           onChange={(event) => {
-                            toBase64(event.currentTarget.files[0]).then((data) => setBackground(data));
+                            if (event.currentTarget.files[0].size < 4000000) {
+                              toBase64(event.currentTarget.files[0]).then((data) => setImage(data));
+                              setErrorFile(false);
+                            } else {
+                              setErrorFile(true);
+                            }
                           }}
                           value={values.background}
                           type="file"
@@ -158,6 +169,7 @@ const FormEdit = ({ data, close }) => {
                     </div>
                   </div>
                 </div>
+                {errorFile && <div className="text-red-400"> El archivo debe pesar menos de 4MB </div>}
 
                 {/* Nombre */}
                 <div className="grid grid-cols-3 gap-6">
@@ -192,7 +204,7 @@ const FormEdit = ({ data, close }) => {
                       className="p-1 text-gray-600 shadow-sm focus:ring-gray-500 focus:border-gray-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md"
                       name="description"
                       autoComplete="off"
-                      row={5}
+                      rows={5}
                     />
                     <div>
                       <label className="block text-sm font-medium text-gray-700">{TEXT_COLOR}</label>

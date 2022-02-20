@@ -88,7 +88,7 @@ function Login() {
                 loginButton(values);
               }}
             >
-              {({}) => (
+              {() => (
                 <Form className="mt-8 space-y-6">
                   <div className="rounded-md shadow-sm -space-y-px">
                     <div>
