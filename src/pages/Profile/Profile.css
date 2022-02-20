@@ -24,6 +24,19 @@
   height: auto;
 }
 
+.button-form {
+  height: 38px;
+  width: 90px;
+}
+
+.markdown > p > img {
+  display: none;
+}
+
+.markdown > p > a {
+  display: none;
+}
+
 .markdown > p {
   display: flex;
   flex-direction: column;
@@ -46,17 +59,37 @@
   margin-right: 0;
   font-weight: bold;
 }
-.markdown > h3 {
-  display: block;
-  font-size: 0.83em;
-  margin-top: 1em;
-  margin-bottom: 1em;
-  margin-left: 0;
-  margin-right: 0;
-  font-weight: bold;
-}
 
-.button-form {
-  height: 38px;
-  width: 90px;
+@font-face {
+  font-family: code;
+  src: url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+}
+.markdown > p > code {
+  font-family: code;
+}
+.markdown > blockquote {
+  border-left: 5px solid rgba(204, 204, 204, 0.733);
+  margin-left: 10px;
+  padding: 0.5em 10px;
+  quotes: '\201C''\201D''\2018''\2019';
+}
+.markdown > ul {
+  list-style-type: disc;
+  list-style-position: inside;
+}
+.markdown > ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+.markdown > ul ul,
+ol ul {
+  list-style-type: circle;
+  list-style-position: inside;
+  margin-left: 15px;
+}
+.markdown > ol ol,
+ul ol {
+  list-style-type: lower-latin;
+  list-style-position: inside;
+  margin-left: 15px;
 }
