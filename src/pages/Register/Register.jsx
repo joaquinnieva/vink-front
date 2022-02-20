@@ -70,8 +70,10 @@ function Register() {
   return (
     <>
       <section className="w-screen h-screen">
-        <div className="absolute left-0 top-0 p-4 text-white">
-          <Link to="/home"><Backarrow /></Link>
+        <div className="absolute left-0 top-0 p-6 text-white">
+          <Link to="/home">
+            <Backarrow />
+          </Link>
         </div>
         <div className="min-h-full  flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md w-full space-y-8 bg-white p-5 rounded">

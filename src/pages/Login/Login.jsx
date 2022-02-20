@@ -59,7 +59,7 @@ function Login() {
   return (
     <>
       <section className="w-screen h-screen">
-        <div className="absolute left-0 top-0 p-4 text-white">
+        <div className="absolute left-0 top-0 p-6 text-white">
           <Link to="/home">
             <Backarrow />
           </Link>
