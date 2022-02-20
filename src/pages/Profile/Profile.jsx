@@ -40,7 +40,7 @@ const Profile = () => {
     document.title = `${username} - Vink`;
   }, [username, userLogged]);
   return (
-    <section className="w-screen min-h-screen" style={{ background: userOptions?.color || '#202937' }}>
+    <section className="w-screen" style={{ background: userOptions?.color || '#202937' }}>
       {/* Loader */}
       {loading && (
         <span className="absolute left-1/2 -translate-x-1/2 inset-y-0 flex items-center text-white">
@@ -76,7 +76,10 @@ const Profile = () => {
             </Popup>
           )}
           <div className="flex flex-wrap justify-center">
-            <div className="w-full" style={{ background: userOptions?.color || '#202937' }}>
+            <div
+              className={`w-full ${userLogged ? 'min-h-screen' : 'section-profile'}`}
+              style={{ background: userOptions?.color || '#202937' }}
+            >
               {/* Background */}
               <div className="h-48 overflow-hidden">
                 {user.background ? (
@@ -174,7 +177,7 @@ const Profile = () => {
       )}
 
       {userLogged ? (
-        <Navbar />
+        <Navbar brand={true} />
       ) : (
         <div className="relative w-screen flex justify-center">
           <Link to="/" className="h-auto w-auto">

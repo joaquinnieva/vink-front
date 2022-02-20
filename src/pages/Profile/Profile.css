@@ -1,3 +1,7 @@
+.section-profile {
+  min-height: calc(100vh - 72px);
+}
+
 .modal {
   font-size: 12px;
   border-radius: 8px;
