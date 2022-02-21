@@ -42,7 +42,7 @@ const Home = () => {
               <LinkScroll
                 smooth={true}
                 to="feats"
-                className="inline-flex text-white bg-vink-800 border-0 py-2 px-6 focus:outline-none hover:bg-vink-700 rounded text-lg"
+                className="inline-flex cursor-pointer text-white bg-vink-800 border-0 py-2 px-6 focus:outline-none hover:bg-vink-700 rounded text-lg"
               >
                 {VIEW_MORE}
               </LinkScroll>
@@ -86,7 +86,7 @@ const Home = () => {
                       to={card.id}
                       smooth={true}
                       offset={-80}
-                      className="mt-3 text-vink-500 inline-flex items-center"
+                      className="mt-3 text-vink-500 hover:text-vink-600 inline-flex items-center cursor-pointer"
                     >
                       {LEARN_MORE}
                       {/* arrow icon */}

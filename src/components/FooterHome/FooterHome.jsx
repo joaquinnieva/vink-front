@@ -4,19 +4,19 @@ import VinkIcon from '../VinkIcon/VinkIcon';
 
 function FooterHome() {
   return (
-    <footer class="text-gray-400 body-font">
-      <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <a class="flex title-font font-medium items-center md:justify-start justify-center text-white sm:border-r border-gray-700">
+    <footer className="text-gray-400 body-font">
+      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+        <a className="flex title-font font-medium items-center md:justify-start justify-center text-white sm:border-r border-gray-700">
           <VinkIcon className="drop-shadow-2xl" height={40} width={120} complete />
         </a>
-        <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
+        <p className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
           {DEVELOPED_BY}
-          <a href="https://www.linkedin.com/in/joaquinnieva" class="ml-1" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/joaquinnieva" className="ml-1" target="_blank" rel="noopener noreferrer">
             Joaquín Nieva
           </a>
         </p>
-        <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a class="ml-3 text-gray-400">
+        <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+          <a className="ml-3 text-gray-400">
             {/* github icon */}
             <svg
               width="20"
@@ -31,15 +31,15 @@ function FooterHome() {
               </g>
             </svg>
           </a>
-          <a class="ml-3 text-gray-400">
+          <a className="ml-3 text-gray-400">
             {/* linkedin icon */}
             <svg
               fill="currentColor"
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="0"
-              class="w-5 h-5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="0"
+              className="w-5 h-5"
               viewBox="0 0 24 24"
             >
               <path
