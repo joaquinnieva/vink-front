@@ -8,7 +8,7 @@ import { logout } from '../../redux/slice/authSlice';
 import VinkIcon from '../VinkIcon/VinkIcon';
 import './Navbar.css';
 
-function Navbar({ brand }) {
+function Navbar({ top, home }) {
   const [nav, setNav] = useState(false);
   const navigate = useNavigate();
   const user = useSelector((state) => state.auth.session);
@@ -23,20 +23,22 @@ function Navbar({ brand }) {
       return setNav(true);
     }
   };
+  const navIsHome = 'w-screen fixed top-0 bg-gray-800';
+  const navIsProfile = 'w-screen fixed bottom-0 bg-black/30 backdrop-blur-sm';
+  const menuIsHome =
+    'z-10 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none';
+  const menuIsProfile =
+    'z-10 -top-24 mt-2 origin-top-right absolute right-0 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none';
 
   useEffect(() => {
     navPosition();
   }, [user]);
   return (
-    <nav
-      className={` w-screen fixed  ${user ? ' bottom-0 bg-black/30 backdrop-blur-sm' : 'top-0 bg-gray-800'} ${
-        !brand && user && 'bg-transparent backdrop-blur-none'
-      } `}
-    >
+    <nav className={home ? navIsHome : navIsProfile}>
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center h-16 m-2 justify-between">
           <div className="flex justify-start">
-            <div className={`flex-shrink-0 flex items-center ${!brand && user && 'invisible'}`}>
+            <div className={`flex-shrink-0 flex items-center `}>
               <Link to="/" className="block md:hidden h-10 w-auto">
                 <VinkIcon height={40} width={120} />
               </Link>
@@ -79,7 +81,7 @@ function Navbar({ brand }) {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <div className="z-10 -top-24 mt-2 origin-top-right absolute right-0 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <div className={top ? menuIsHome : menuIsProfile}>
                   {user && (
                     <Link to={`/${user?.username}`} className="block hover:bg-gray-200 px-4 py-2 text-sm text-gray-700">
                       {PROFILE}
