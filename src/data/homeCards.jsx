@@ -1,7 +1,8 @@
 export const homeCards = [
   {
     title: 'Fácil uso',
-    description: 'Vink es fácil desde la creación de la cuenta hasta entender como personalizar tu perfil',
+    id: 'use',
+    description: 'Vink es fácil desde la creación de la cuenta hasta entender como personalizar tu perfil.',
     link: 'profile',
     svg: (
       <svg width="24" height="24" strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -40,7 +41,8 @@ export const homeCards = [
   },
   {
     title: 'Personalización',
-    description: 'Es tan fácil como personalizable, queda a tu criterio la estética de tu Vink',
+    id: 'settings',
+    description: 'Es tan fácil como personalizable, queda a tu criterio la estética de tu Vink.',
     link: 'profile',
     svg: (
       <svg width="24" height="24" strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -61,8 +63,9 @@ export const homeCards = [
   },
   {
     title: 'Markdown',
+    id: 'markdown',
     description:
-      'Con Markdown tu descripción no va ser solo texto plano, puedes crear secciones y darle los apartados que quieras',
+      'Con Markdown tu descripción no va ser solo texto plano, puedes crear secciones y darle los apartados que quieras.',
     link: 'profile',
     svg: (
       <svg width="22" height="22" strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,15 +93,18 @@ export const homeCards = [
 export const cardsDetails = [
   {
     title: 'Fácil uso',
-    description: 'Vink es fácil desde la creación de la cuenta hasta entender como personalizar tu perfil',
+    id: 'use',
+    description: 'Vink es fácil desde la creación de la cuenta hasta entender como personalizar tu perfil.',
   },
   {
     title: 'Personalización',
-    description: 'Es tan bueno como personalizable, queda a tu criterio la estética de tu Vink',
+    id: 'settings',
+    description: 'Es tan bueno como personalizable, queda a tu criterio la estética de tu Vink.',
   },
   {
     title: 'Markdown',
+    id: 'markdown',
     description:
-      'Con Markdown tu descripción no va ser solo texto plano, puedes crear secciones y darle los apartados que quieras',
+      'Con Markdown tu descripción no va ser solo texto plano, puedes crear secciones y darle los apartados que quieras.',
   },
 ];
