@@ -1,6 +1,6 @@
 import Axios from 'axios';
 
-const URI_API = `http://localhost:3001/api`;
+const URI_API = `https://vink-api.herokuapp.com/api`;
 
 export const loginUser = async (value) => {
   try {
