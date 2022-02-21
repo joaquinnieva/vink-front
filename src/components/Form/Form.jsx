@@ -104,7 +104,7 @@ const FormEdit = ({ data, close }) => {
                           value={values.image}
                           type="file"
                           className="hidden"
-                          accept="image/png, image/jpeg, image/jpg"
+                          accept="image/jpeg,image/png,image/jpg"
                           name="image"
                         />
                       </label>
@@ -161,7 +161,7 @@ const FormEdit = ({ data, close }) => {
                           value={values.background}
                           type="file"
                           className="hidden"
-                          accept="image/png, image/jpeg, image/jpg"
+                          accept="image/jpeg,image/png,image/jpg"
                           name="background"
                         />
                       </label>
