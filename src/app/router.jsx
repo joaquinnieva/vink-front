@@ -13,18 +13,18 @@ function Router() {
     <Routes>
       {user ? (
         <>
-          <Route exact path="/login" element={<Navigate to={'/' + userRoute} />} />
-          <Route exact path="/register" element={<Navigate to={'/' + userRoute} />} />
+          <Route path="/login" element={<Navigate to={'/' + userRoute} />} />
+          <Route path="/register" element={<Navigate to={'/' + userRoute} />} />
         </>
       ) : (
         <>
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </>
       )}
-      <Route exact path="/user/:username" element={<Profile />} />
-      <Route exact path="/home" element={<Navigate to="/" />} />
-      <Route exact path="/" element={<Home />} />
+      <Route path="/:username" element={<Profile />} />
+      <Route path="/home" element={<Navigate to="/" />} />
+      <Route path="/" element={<Home />} />
       <Route path="*" element={<NotFound404 />} />
     </Routes>
   );
