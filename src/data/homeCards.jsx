@@ -64,8 +64,7 @@ export const homeCards = [
   {
     title: 'Markdown',
     id: 'markdown',
-    description:
-      'Con Markdown tu descripción no va ser solo texto plano, puedes crear secciones y darle los apartados que quieras.',
+    description: 'Con Markdown tu descripción no va ser solo texto plano, puedes crear secciones como quieras.',
     link: 'profile',
     svg: (
       <svg width="22" height="22" strokeWidth="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,17 +93,19 @@ export const cardsDetails = [
   {
     title: 'Fácil uso',
     id: 'use',
-    description: 'Vink es fácil desde la creación de la cuenta hasta entender como personalizar tu perfil.',
+    description:
+      'El funcionamiento de Vink es tan fácil que se puede entender cuando ingresas a tu perfil, hay sección de portada, como foto personal y nombre con hash de usuario, luego sigue la sección de descripción y por ultimo la sección de enlaces.',
   },
   {
     title: 'Personalización',
     id: 'settings',
-    description: 'Es tan bueno como personalizable, queda a tu criterio la estética de tu Vink.',
+    description:
+      'La personalización se basa en todo lo estético, ya que la estructura del perfil no puede cambiarse, se puede personalizar desde color de textos o color de fondo, hasta color de botones y forma de botones.',
   },
   {
     title: 'Markdown',
     id: 'markdown',
     description:
-      'Con Markdown tu descripción no va ser solo texto plano, puedes crear secciones y darle los apartados que quieras.',
+      'Con markdown puedes crear la estructura del texto a tu gusto, poner cabeceras o resaltar y hasta poner separadores, la idea es que Markdown sea una herramienta mas para la personalizacion de tu perfil.',
   },
 ];

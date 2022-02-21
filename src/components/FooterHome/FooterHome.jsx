@@ -9,14 +9,20 @@ function FooterHome() {
         <a className="flex title-font font-medium items-center md:justify-start justify-center text-white sm:border-r border-gray-700">
           <VinkIcon className="drop-shadow-2xl" height={40} width={120} complete />
         </a>
-        <p className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
+        <div className="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
           {DEVELOPED_BY}
-          <a href="https://www.linkedin.com/in/joaquinnieva" className="ml-1" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/in/joaquinnieva"
+            className="mx-1 text-gray-500"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Joaquín Nieva
           </a>
-        </p>
+          <p className="mx-1 text-gray-500 text-center">© 2022 Vink</p>
+        </div>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a className="ml-3 text-gray-400">
+          <a href="https://github.com/joaquinnieva" target="_blank" className="ml-3 text-gray-400">
             {/* github icon */}
             <svg
               width="20"
@@ -31,7 +37,7 @@ function FooterHome() {
               </g>
             </svg>
           </a>
-          <a className="ml-3 text-gray-400">
+          <a href="https://www.linkedin.com/in/joaquinnieva" target="_blank" className="ml-3 text-gray-400">
             {/* linkedin icon */}
             <svg
               fill="currentColor"

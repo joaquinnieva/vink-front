@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import * as Scroll from 'react-scroll';
+import Blog from '../../components/Blog/Blog';
 import FooterHome from '../../components/FooterHome/FooterHome';
 import Landing from '../../components/LandingSVG/Landing';
 import Navbar from '../../components/Navbar/Navbar';
@@ -72,7 +73,7 @@ const Home = () => {
           </div>
           <div className="flex flex-wrap -m-4">
             {homeCards.map((card, index) => (
-              <div className="p-4 md:w-1/3" key={index}>
+              <div className="p-4 w-full md:w-1/3" key={index}>
                 <div className="flex rounded-lg h-full bg-gray-700 bg-opacity-60 p-8 flex-col">
                   <div className="flex items-center mb-3">
                     <div className="w-8 h-8 mr-3 inline-flex items-center justify-center rounded-full bg-vink-800 text-white flex-shrink-0">
@@ -112,11 +113,25 @@ const Home = () => {
       {/* card detail section */}
       <section className="text-gray-400 body-font">
         {cardsDetails.map((card, index) => (
-          <div className="container px-5 py-16 mx-auto flex flex-wrap" key={index} id={card.id}>
-            <h2 className="sm:text-3xl text-2xl text-white font-medium title-font mb-2 md:w-2/5 md:border-r border-gray-500">
+          <div
+            className={
+              index == 1
+                ? 'container px-5 py-16 mx-auto flex flex-wrap flex-row md:flex-row-reverse'
+                : 'container px-5 py-16 mx-auto flex flex-wrap'
+            }
+            key={index}
+            id={card.id}
+          >
+            <h2
+              className={
+                index == 1
+                  ? 'sm:text-3xl text-2xl text-white font-medium title-font text-right pr-6 mb-2 md:w-2/5 md:border-l border-gray-500'
+                  : 'sm:text-3xl text-2xl text-white font-medium title-font mb-2 md:w-2/5 md:border-r border-gray-500'
+              }
+            >
               {card.title}
             </h2>
-            <div className="md:w-3/5 md:pl-6">
+            <div className={index == 1 ? 'md:w-3/5 md:pr-6' : 'md:w-3/5 md:pl-6'}>
               <p className="leading-relaxed text-base">{card.description}</p>
             </div>
           </div>
@@ -124,33 +139,8 @@ const Home = () => {
       </section>
       {/* blog section */}
       <section className="text-gray-400 body-font overflow-hidden">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-12">
-            <div className="p-12 border border-gray-700 flex flex-col items-start">
-              <span className="inline-block py-1 px-2 rounded bg-gray-700 text-gray-400 text-opacity-75 text-xs font-medium tracking-widest">
-                BLOG
-              </span>
-              <h2 className="sm:text-3xl text-2xl title-font font-medium text-white mt-4 mb-4">
-                Proyecto Vink en fase BETA
-              </h2>
-              <p className="leading-relaxed mb-8">
-                Live-edge letterpress cliche, salvia fanny pack humblebrag narwhal portland. VHS man braid palo santo
-                hoodie brunch trust fund. Bitters hashtag waistcoat fashion axe chia unicorn. Plaid fixie chambray 90's,
-                slow-carb etsy tumeric.
-              </p>
-              <a href="/joaquinnieva" className="inline-flex items-center">
-                <img
-                  alt="blog"
-                  src="https://dummyimage.com/103x103"
-                  className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
-                />
-                <span className="flex-grow flex flex-col pl-4">
-                  <span className="title-font font-medium text-white">Joaquín Nieva</span>
-                  <span className="text-gray-500 text-xs tracking-widest mt-0.5">Desarrollador web</span>
-                </span>
-              </a>
-            </div>
-          </div>
+        <div className="container px-5 my-24 py-24 mx-auto">
+          <Blog />
         </div>
       </section>
       <FooterHome></FooterHome>
