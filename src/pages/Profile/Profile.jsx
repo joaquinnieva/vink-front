@@ -11,13 +11,15 @@ import Editicon from '../../components/EditIcon/EditIcon';
 import FormEdit from '../../components/Form/Form';
 import Loader from '../../components/Loader/Loader';
 import Navbar from '../../components/Navbar/Navbar';
+import Toast from '../../components/Toast/Toast';
 import VinkIcon from '../../components/VinkIcon/VinkIcon';
-import { EDIT_PROFILE, IN_LOAD, SAMPLE_IMAGE } from '../../data/constants';
+import { COPY_SUCCESS, EDIT_PROFILE, IN_LOAD, SAMPLE_IMAGE } from '../../data/constants';
 import { getUser } from '../../functions/apiService';
 import './Profile.css';
 
 const Profile = () => {
   const [loading, setLoading] = useState(true);
+  const [notification, setNotification] = useState(false);
   const userLogged = useSelector((state) => state.auth.session);
   const navigate = useNavigate();
   const { username } = useParams();
@@ -37,6 +39,10 @@ const Profile = () => {
   };
   const handleCopy = (link) => {
     navigator.clipboard.writeText(link.link);
+    setNotification(true);
+    setTimeout(() => {
+      return setNotification(false);
+    }, 3500);
   };
 
   useEffect(() => {
@@ -53,32 +59,15 @@ const Profile = () => {
         </span>
       )}
 
+      {/* Noti */}
+      {notification && (
+        <div className="flex justify-center absolute w-screen my-4">
+          <Toast msg={COPY_SUCCESS} action={() => setNotification(false)} />
+        </div>
+      )}
+
       {user && (
         <>
-          {user.username === userLogged.username && (
-            <Popup
-              trigger={
-                <button
-                  type="button"
-                  className="absolute rounded flex gap-2 text-gray-800 font-bold bg-gray-300 hover:bg-gray-100 top-0 right-0 px-6 py-2 m-10 p- z-10"
-                >
-                  {EDIT_PROFILE}
-                  <Editicon />
-                </button>
-              }
-              modal
-              nested
-            >
-              {(close) => (
-                <div className="modal bg-transparent">
-                  <button className="close" onClick={close}>
-                    &times;
-                  </button>
-                  <FormEdit data={user} close={close} />
-                </div>
-              )}
-            </Popup>
-          )}
           <div className="flex flex-wrap justify-center">
             <div
               className={`w-full ${userLogged ? 'min-h-screen' : 'section-profile'}`}
@@ -98,7 +87,31 @@ const Profile = () => {
               </div>
 
               {/* Profile Photo */}
-              <header className="flex flex-col overflow-hidden justify-start px-5 -mt-12 sm:-mt-12 sm:ml-12 sm:mr-12 ">
+              <header className="relative flex flex-col overflow-hidden justify-start px-5 -mt-12 sm:-mt-14 sm:ml-12 ml-4 sm:mr-12 ">
+                {user.username === userLogged.username && (
+                  <Popup
+                    trigger={
+                      <button
+                        type="button"
+                        className="absolute rounded flex items-center gap-1 text-gray-800 text-base font-semibold bg-gray-300 hover:bg-gray-100 top-0 right-0 px-4 py-1 mt-14 sm:mt-16 mr-4 z-10"
+                      >
+                        {EDIT_PROFILE}
+                        <Editicon />
+                      </button>
+                    }
+                    modal
+                    nested
+                  >
+                    {(close) => (
+                      <div className="modal bg-transparent">
+                        <button className="close" onClick={close}>
+                          &times;
+                        </button>
+                        <FormEdit data={user} close={close} />
+                      </div>
+                    )}
+                  </Popup>
+                )}
                 <div
                   style={{ background: userOptions?.color }}
                   className="h-24 w-24 sm:h-28 sm:w-28 bg-gray-800 p-1 rounded-full overflow-hidden flex items-center"
@@ -121,10 +134,10 @@ const Profile = () => {
                 </div>
 
                 {/* name */}
-                <div className="flex flex-row h-fit text-left justify-start sm:mb-4 font-bold text-3xl text-gray-200">
+                <div className="flex flex-row text-xl sm:text-2xl h-fit text-left justify-start sm:mb-4 font-bold text-gray-200">
                   <p
                     style={{ color: userOptions?.textColor || '#9ca3af' }}
-                    className="text-gray-400 w-auto whitespace-nowrap"
+                    className="text-gray-400  w-auto whitespace-nowrap"
                   >
                     {user.name || user.username}
                   </p>
@@ -154,7 +167,7 @@ const Profile = () => {
 
               {/* links */}
               <div className="">
-                <div className="text-center pl-8 pr-2 lg:px-16 mb-10">
+                <div className="text-center pl-6 pr-2 lg:px-16 mb-10">
                   <div className="flex flex-col mt-6 h-auto">
                     {user.links?.map((link, index) => (
                       <p key={index} className="w-100 flex">
@@ -178,7 +191,9 @@ const Profile = () => {
                           }}
                           onClick={() => handleCopy(link)}
                         >
-                          <CopyIcon className="text-white" />
+                          <abbr title="Copy to clipboard">
+                            <CopyIcon className="text-white" />
+                          </abbr>
                         </button>
                       </p>
                     ))}
@@ -191,7 +206,7 @@ const Profile = () => {
       )}
 
       {userLogged ? (
-        <Navbar brand={true} />
+        <Navbar />
       ) : (
         <div className="relative w-screen flex justify-center">
           <Link to="/" className="h-auto w-auto">

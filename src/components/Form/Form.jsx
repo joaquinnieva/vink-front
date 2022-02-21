@@ -50,7 +50,6 @@ const FormEdit = ({ data, close }) => {
     }
   };
   const dataOptions = data?.options[0];
-  console.log(data);
   useEffect(() => {}, [buttonEditUser]);
   return (
     <div className="col-span-2 h-full overflow-auto rounded">
@@ -105,7 +104,7 @@ const FormEdit = ({ data, close }) => {
                           value={values.image}
                           type="file"
                           className="hidden"
-                          accept="image/png, image/jpeg, image/jpg, image/gif"
+                          accept="image/png, image/jpeg, image/jpg"
                           name="image"
                         />
                       </label>
@@ -153,7 +152,7 @@ const FormEdit = ({ data, close }) => {
                         <input
                           onChange={(event) => {
                             if (event.currentTarget.files[0].size < 4000000) {
-                              toBase64(event.currentTarget.files[0]).then((data) => setImage(data));
+                              toBase64(event.currentTarget.files[0]).then((data) => setBackground(data));
                               setErrorFile(false);
                             } else {
                               setErrorFile(true);
