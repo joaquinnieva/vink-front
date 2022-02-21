@@ -49,7 +49,7 @@ function Login() {
       setLoading(false);
       dispatch(login(user));
       localAuth('login', { token: user.token, id: user.id, username: user.username, image: user.image });
-      navigate('/' + user.username);
+      navigate('/user/' + user.username);
     } else {
       setLoading(false);
       setError(true);

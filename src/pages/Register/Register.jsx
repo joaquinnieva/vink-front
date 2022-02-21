@@ -48,7 +48,7 @@ function Register() {
       if (userToLog) {
         setLoading(false);
         dispatch(login(userToLog));
-        navigate('/' + user.username);
+        navigate('/user/' + user.username);
         localAuth('login', {
           token: userToLog.token,
           id: userToLog.id,
