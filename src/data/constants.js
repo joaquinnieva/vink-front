@@ -7,12 +7,13 @@ export const SAMPLE_BG =
   'https://asset.gecdesigns.com/img/backgrounds/modern-crystal-abstract-background-template-1612247149783-cover.webp';
 export const GRIS_OSCURO = '#202937';
 export const GRIS_CLARO = '#374151';
-export const BRAND = 'con Vink';
-export const LANDING_TITLE = 'Une tus links';
-export const LANDING_DESC = 'Aquí vas a poder juntar y compartir todos tus links de forma centralizada';
-export const HOME_DESC =
-  'Este es un sitio para juntar y compartir todos tus links, con Vink puedes mostrar tu perfil donde puedes publicar los links que quieras';
 export const VIEW_MORE = 'Ver más';
+export const HOME_TITLE1 = 'Con Vink, tu perfil';
+export const HOME_TITLE2 = 'es tu resumen, tu presentación';
+export const HOME_DESCRIPTION =
+  'Vink te sirve para crear y compartir tu perfil, ya sea de forma profesional o no, el objetivo es centralizar tu información y compartirla';
+export const HOME_SECTION_FEATS = 'Tu perfil, tu presentación.';
+export const HOME_SECTION_FEATS_SUB = 'VINK LO FACILITA';
 export const CONFIRM = 'Confirmar';
 export const RESET = 'Resetear';
 export const CALCULATE = 'Calcular';
@@ -40,6 +41,7 @@ export const USER_BG = 'Portada';
 export const USER_COLOR = 'Color';
 export const ADD_LINK = 'Agregar link';
 export const BUTTON = 'Botón';
+export const COPY_SUCCESS = 'Copiado con éxito';
 export const MY_LINK = 'Mi enlace';
 export const BG_COLOR = 'Color de fondo';
 export const TEXT_COLOR = 'Color de texto';
