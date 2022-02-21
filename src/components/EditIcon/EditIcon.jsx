@@ -2,7 +2,7 @@ import React from 'react';
 
 const Editicon = () => {
   return (
-    <svg width="24" strokeWidth="1.5" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="20" height="20" strokeWidth="1.5" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M20 12V5.74853C20 5.5894 19.9368 5.43679 19.8243 5.32426L16.6757 2.17574C16.5632 2.06321 16.4106 2 16.2515 2H4.6C4.26863 2 4 2.26863 4 2.6V21.4C4 21.7314 4.26863 22 4.6 22H11"
         stroke="currentColor"
