@@ -11,6 +11,7 @@ import VinkIcon from '../../components/VinkIcon/VinkIcon';
 import Visibility from '../../components/Visibility/Visibility';
 import {
   CREATE_ACCOUNT,
+  ERROR_MSG,
   GRIS_OSCURO,
   ID_GOOGLE,
   LOGGING_IN,
@@ -32,6 +33,7 @@ function Login() {
     }
   };
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginGoogle = (res) => {
@@ -48,6 +50,12 @@ function Login() {
       dispatch(login(user));
       localAuth('login', { token: user.token, id: user.id, username: user.username, image: user.image });
       navigate('/' + user.username);
+    } else {
+      setLoading(false);
+      setError(true);
+      setTimeout(() => {
+        return setError(false);
+      }, 3500);
     }
   };
 
@@ -111,6 +119,7 @@ function Login() {
                         {visible ? <Visibility visible /> : <Visibility />}
                       </button>
                     </div>
+                    {error && <div className="text-red-400 p-2">{ERROR_MSG}</div>}
                     <ErrorMessage name="username">
                       {(msg) => <div className="text-red-400 p-2">{msg}</div>}
                     </ErrorMessage>

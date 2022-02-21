@@ -31,6 +31,7 @@ function Register() {
     }
   };
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginGoogle = (res) => {
@@ -55,9 +56,12 @@ function Register() {
           image: userToLog.image,
         });
       }
-    } else if (user) {
+    } else {
       setLoading(false);
-      // poner noti de que existe o esta mal la info
+      setError(true);
+      setTimeout(() => {
+        return setError(false);
+      }, 3500);
     }
   };
   const regex = new RegExp(/\s/);
@@ -125,6 +129,7 @@ function Register() {
                         {visible ? <Visibility visible /> : <Visibility />}
                       </button>
                     </div>
+                    {error && <div className="text-red-400 p-2">{ERROR_MSG}</div>}
                     <ErrorMessage name="username">
                       {(msg) => <div className="text-red-400 p-2">{msg}</div>}
                     </ErrorMessage>

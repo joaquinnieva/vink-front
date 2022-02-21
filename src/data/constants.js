@@ -45,3 +45,4 @@ export const COPY_SUCCESS = 'Copiado con éxito';
 export const MY_LINK = 'Mi enlace';
 export const BG_COLOR = 'Color de fondo';
 export const TEXT_COLOR = 'Color de texto';
+export const ERROR_MSG = 'Algo ha salido mal, intentalo más tarde';
