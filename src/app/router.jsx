@@ -22,7 +22,7 @@ function Router() {
           <Route path="/register" element={<Register />} />
         </>
       )}
-      <Route path="/:username" element={<Profile />} />
+      <Route path="/user/:username" element={<Profile />} />
       <Route path="/home" element={<Navigate to="/" />} />
       <Route path="/" element={<Home />} />
       <Route path="*" element={<NotFound404 />} />

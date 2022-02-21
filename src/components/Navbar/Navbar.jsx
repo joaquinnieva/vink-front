@@ -83,7 +83,10 @@ function Navbar({ top, home }) {
               >
                 <div className={top ? menuIsHome : menuIsProfile}>
                   {user && (
-                    <Link to={`/${user?.username}`} className="block hover:bg-gray-200 px-4 py-2 text-sm text-gray-700">
+                    <Link
+                      to={`/user/${user?.username}`}
+                      className="block hover:bg-gray-200 px-4 py-2 text-sm text-gray-700"
+                    >
                       {PROFILE}
                     </Link>
                   )}
